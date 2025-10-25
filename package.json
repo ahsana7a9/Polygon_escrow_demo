@@ -1,0 +1,15 @@
+{
+  "name": "polygon-escrow-demo",
+  "version": "1.0.0",
+  "description": "ChainTrust Polygon Mumbai escrow demo (Escrow.sol + frontend)",
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "deploy:mumbai": "npx hardhat run scripts/deploy.js --network polygon_mumbai"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
+    "hardhat": "^2.16.0",
+    "dotenv": "^16.0.0"
+  },
+  "dependencies": {}
+}

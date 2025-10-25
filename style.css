@@ -1,0 +1,51 @@
+:root{
+  --bg:#0b1220;
+  --card:#0f1724;
+  --accent:#7c3aed;
+  --muted:#9aa4b2;
+  --glass: rgba(255,255,255,0.03);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:linear-gradient(180deg,#061124 0%, #07132a 60%);
+  color:#e6eef6;
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+.app{max-width:1100px;margin:24px auto;padding:16px;}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
+.brand{display:flex;gap:12px;align-items:center;}
+.logo{width:52px;height:52px;border-radius:10px;background:#fff;padding:6px;}
+h1{margin:0;font-size:20px;}
+.muted{color:var(--muted);margin:6px 0;}
+.small{font-size:12px;}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+.card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 24px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03);}
+.wide{grid-column:1/-1;}
+.row{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap;}
+.btn{background:var(--accent);border:none;padding:10px 14px;border-radius:10px;color:white;cursor:pointer;font-weight:600;}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);}
+.btn.tiny{padding:6px 8px;font-size:13px;}
+input, textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:var(--glass);color:inherit;}
+textarea{min-height:110px;resize:vertical;}
+.status{margin-top:12px;padding:10px;border-radius:8px;background:rgba(255,255,255,0.02);font-size:14px;}
+.details{margin-top:8px;font-size:13px;}
+.wallets{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:center;}
+.wallet-card{background:#061323;padding:10px;border-radius:10px;width:48%;display:flex;flex-direction:column;align-items:center;gap:8px;}
+.qr-img{width:110px;height:110px;border-radius:8px;background:#fff;}
+.mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;font-size:13px;color:var(--muted)}
+.contractPreview{margin-top:12px;padding:10px;background:rgba(255,255,255,0.02);border-radius:8px;text-align:left;white-space:pre-wrap;}
+.progressRow{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;}
+.progressBar{background:rgba(255,255,255,0.04);width:260px;height:12px;border-radius:999px;overflow:hidden;}
+.progressFill{height:100%;background:linear-gradient(90deg,var(--accent),#4f46e5);width:0;}
+.roadmapList{display:flex;flex-direction:column;gap:8px;margin-left:8px;}
+.roadItem{padding:8px;border-radius:8px;background:rgba(255,255,255,0.02);color:var(--muted);}
+.roadItem.done{background:linear-gradient(90deg,#052f1a,#0b5130);color:#bff3cf;}
+.roadItem.active{background:linear-gradient(90deg,#2b2556,#3b2f7b);color:#e3dbff;}
+.footer{text-align:center;margin-top:18px;color:var(--muted);font-size:13px}
+@media(max-width:880px){
+  .grid{grid-template-columns:1fr}
+  .wallet-card{width:100%}
+}

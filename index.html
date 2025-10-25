@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ChainTrust — Polygon Escrow Demo</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.7.0/dist/ethers.umd.min.js"></script>
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <div class="brand">
+        <img src="assets/logo.png" alt="logo" class="logo" />
+        <div>
+          <h1>ChainTrust</h1>
+          <p class="muted">Escrow demo on Polygon Mumbai</p>
+        </div>
+      </div>
+      <div class="wallet-area">
+        <button id="connectBtn" class="btn ghost" onclick="connectWallet()">Connect Wallet</button>
+        <div id="account" class="muted small"></div>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="card">
+        <h2>Escrow Interaction</h2>
+        <label>Escrow Contract Address</label>
+        <input id="contractAddress" placeholder="Paste deployed contract address" />
+
+        <div class="row">
+          <button class="btn" onclick="signAgreement()">Sign Agreement</button>
+          <button class="btn" onclick="releaseIfReady()">Release (if signed)</button>
+          <button class="btn ghost" onclick="refundBuyer()">Refund Buyer</button>
+        </div>
+
+        <div id="txStatus" class="status"></div>
+        <pre id="details" class="details muted"></pre>
+      </section>
+
+      <section class="card">
+        <h2>Support Wallet (QR)</h2>
+        <div class="wallets">
+          <div class="wallet-card">
+            <img src="assets/qr-usdt.png" alt="qr" class="qr-img" />
+            <p class="mono">USDT / Polygon: <span id="usdtAddr">0xYourWalletHere</span></p>
+            <button class="btn tiny" onclick="copyText('usdtAddr')">Copy</button>
+          </div>
+          <div class="wallet-card">
+            <img src="assets/qr-eth.png" alt="qr" class="qr-img" />
+            <p class="mono">ETH / Polygon: <span id="ethAddr">0xYourWalletHere</span></p>
+            <button class="btn tiny" onclick="copyText('ethAddr')">Copy</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Contract Writer (Demo)</h2>
+        <textarea id="contractText" placeholder="Describe the deal — e.g. I will pay 5000 QAR for logo design, funds released after delivery."></textarea>
+        <div class="row">
+          <button class="btn" onclick="generateSample()">Generate Contract</button>
+          <button class="btn ghost" onclick="saveContract()">Save</button>
+        </div>
+        <div id="savedContract" class="contractPreview muted"></div>
+      </section>
+
+      <section class="card wide">
+        <h2>Progress & Roadmap</h2>
+        <div class="progressRow">
+          <div>
+            <p class="muted small">Overall progress</p>
+            <div class="progressBar">
+              <div id="overallProgress" class="progressFill" style="width:40%"></div>
+            </div>
+            <p class="muted small">40% completed</p>
+          </div>
+
+          <div class="roadmapList">
+            <div class="roadItem done">Phase 1 — Prototype (Done)</div>
+            <div class="roadItem active">Phase 2 — Smart Contract MVP (In Progress)</div>
+            <div class="roadItem">Phase 3 — Testnet Launch</div>
+            <div class="roadItem">Phase 4 — Multi-Currency</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <small>ChainTrust — Demo • Polygon Mumbai • Open-source prototype</small>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
